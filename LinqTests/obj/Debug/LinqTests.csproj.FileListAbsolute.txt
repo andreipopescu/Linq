@@ -1,0 +1,7 @@
+D:\Dropbox\Source Codes\C#\Linq\LinqTests\bin\Debug\LinqTests.dll
+D:\Dropbox\Source Codes\C#\Linq\LinqTests\bin\Debug\LinqTests.pdb
+D:\Dropbox\Source Codes\C#\Linq\LinqTests\bin\Debug\Linq2.exe
+D:\Dropbox\Source Codes\C#\Linq\LinqTests\bin\Debug\Linq2.pdb
+D:\Dropbox\Source Codes\C#\Linq\LinqTests\obj\Debug\LinqTests.csprojResolveAssemblyReference.cache
+D:\Dropbox\Source Codes\C#\Linq\LinqTests\obj\Debug\LinqTests.dll
+D:\Dropbox\Source Codes\C#\Linq\LinqTests\obj\Debug\LinqTests.pdb
