@@ -7,32 +7,6 @@ namespace Linq
 {
     public static class Linq
     {
-        public static bool All<T> (this IEnumerable<T> list, Func<T, bool> func)
-        {
-            foreach (var item in list)
-            {
-                if(!func(item))
-                {
-                    return false;
-                }
-            }
-
-            return true;
-        }
-
-        public static bool Any<T> (this IEnumerable<T> list, Func<T, bool> func)
-        {
-            foreach (var item in list)
-            {
-                if(func(item))
-                {
-                    return true;
-                }
-            }
-
-            return false;
-        }
-
         public static IEnumerable<T> Where<T> (this IEnumerable<T> list, Func<T, bool> func)
         {
             List<T> data = new List<T>();

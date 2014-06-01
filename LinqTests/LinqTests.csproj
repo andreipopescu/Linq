@@ -55,7 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Linq\Linq.csproj">
-      <Project>{bf586ba2-3b04-4581-b035-f442ba75d640}</Project>
+      <Project>{65b4069e-688e-4a44-9f74-caaa56b152ae}</Project>
       <Name>Linq</Name>
     </ProjectReference>
   </ItemGroup>
