@@ -10,11 +10,11 @@ namespace LinqTests
     /// Summary description for SinglesTests
     /// </summary>
     [TestClass]
-    public class SinglesTests
+    public class SingleTests
     {
         private TestContext _testContextInstance;
 
-        public SinglesTests() { }
+        public SingleTests() { }
          
         /// <summary>
         ///Gets or sets the test context which provides
