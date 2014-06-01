@@ -36,18 +36,6 @@ namespace Linq
             return default(T);
         }
 
-        //public static T Single<T>(this IEnumerable<T> list, Func<T, bool> func) where T : class
-        //{
-        //    var result = SingleOrDefault<T>(list, func);
-
-        //    if (result == null)
-        //    {
-        //        throw new Exception("Sequence contains no matching elements");
-        //    }
-
-        //    return result;
-        //}
-
         public static T Single<T>(this IEnumerable<T> list, Func<T, bool> func)
         {
             bool itemFound = false;
