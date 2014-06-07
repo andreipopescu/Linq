@@ -10,11 +10,11 @@ namespace LinqTests
     /// Summary description for SinglesTests
     /// </summary>
     [TestClass]
-    public class SingleTests
+    public class GettersTests
     {
         private TestContext _testContextInstance;
 
-        public SingleTests() { }
+        public GettersTests() { }
          
         /// <summary>
         ///Gets or sets the test context which provides
@@ -86,6 +86,35 @@ namespace LinqTests
             double number = numbers.SingleOrDefault(x => x == 0.1);
 
             Assert.AreEqual(0, number);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(Exception))]
+        public void SingleOrDefaultParameterized_ThrowExceptions()
+        {
+            List<string> names = new List<string>(0);
+
+            string name = names.Single(x => x == "Bill Gates");
+        }
+
+        [TestMethod]
+        public void SingleParameterized_ReturnsValue()
+        {
+            List<string> names = GetNamesList();
+
+            string name = names.Single(x => x == "Mr Bean");
+
+            Assert.IsNotNull(name);
+            Assert.AreEqual(names[0], name);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(Exception))]
+        public void SingleParameterized_ThrowExceptions()
+        {
+            List<string> names = GetNamesList();
+
+            string name = names.Single(x => x == "Steve Balmer");
         }
 
         private List<string> GetNamesList()

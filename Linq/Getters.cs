@@ -43,14 +43,17 @@ namespace Linq
 
             foreach (var item in list)
             {
-                if (!itemFound && func(item))
+                if (func(item))
                 {
-                    itemFound = true;
-                    matchedItem = item;
-                }
-                else
-                {
-                    throw new Exception("Sequence contains more than one element");
+                    if (!itemFound)
+                    {
+                        matchedItem = item;
+                        itemFound = true;
+                    }
+                    else
+                    {
+                        throw new Exception("Sequence contains more than one element");
+                    }
                 }
             }
 
