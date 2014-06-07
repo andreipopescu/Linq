@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -19,6 +18,13 @@ namespace Linq
             }
 
             return true;
+        }
+
+        public static bool Any<T>(this IEnumerable<T> list)
+        {
+            var enumerator = list.GetEnumerator();
+
+            return enumerator.MoveNext();
         }
 
         public static bool Any<T>(this IEnumerable<T> list, Func<T, bool> func)
