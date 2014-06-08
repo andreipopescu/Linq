@@ -13,8 +13,14 @@ namespace LinqTests
     public class GettersTests
     {
         private TestContext _testContextInstance;
+        private readonly List<string> _namesList;
+        private readonly List<double> _numbersList;
 
-        public GettersTests() { }
+        public GettersTests() 
+        {
+            _namesList = GetNamesList();
+            _numbersList = GetNumbersList();
+        }
          
         /// <summary>
         ///Gets or sets the test context which provides
@@ -60,7 +66,7 @@ namespace LinqTests
         public void SingleOrDefault_Parameterized_ReturnsValue()
         {
             // Arrange
-            List<string> names = GetNamesList();
+            List<string> names = _namesList;
             
             // Act 
             string name = names.SingleOrDefault(x => x == "Mr Bean");
@@ -73,7 +79,7 @@ namespace LinqTests
         [TestMethod]
         public void SingleOrDefault_Parameterized_ReturnsNull()
         {
-            List<string> names = GetNamesList();
+            List<string> names = _namesList;
 
             string name = names.SingleOrDefault(x => x == "Steve Balmer");
 
@@ -83,7 +89,7 @@ namespace LinqTests
         [TestMethod]
         public void SingleOrDefault_Parameterized_ReturnsZero()
         {
-            List<double> numbers = GetNumbersList();
+            List<double> numbers = _numbersList;
 
             double number = numbers.SingleOrDefault(x => x == 0.1);
 
@@ -106,7 +112,7 @@ namespace LinqTests
         [TestMethod]
         public void Single_Parameterized_ReturnsValue()
         {
-            List<string> names = GetNamesList();
+            List<string> names = _namesList;
 
             string name = names.Single(x => x == "Mr Bean");
 
@@ -118,7 +124,7 @@ namespace LinqTests
         [ExpectedException(typeof(Exception))]
         public void Single_Parameterized_ThrowExceptions()
         {
-            List<string> names = GetNamesList();
+            List<string> names = _namesList;
 
             string name = names.Single(x => x == "Steve Balmer");
         } 
