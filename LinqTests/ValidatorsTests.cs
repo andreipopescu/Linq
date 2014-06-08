@@ -29,7 +29,7 @@ namespace LinqTests
         }
 
         [TestMethod]
-        public void AnyParameterized_ReturnsTrue()
+        public void Any_Parameterized_ReturnsTrue()
         {
             List<int> numbers = GetNumbers();
 

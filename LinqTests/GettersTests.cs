@@ -54,8 +54,10 @@ namespace LinqTests
         //
         #endregion
 
+        #region SingleOrDefault Tests
+
         [TestMethod]
-        public void SingleOrDefaultParameterized_ReturnsValue()
+        public void SingleOrDefault_Parameterized_ReturnsValue()
         {
             // Arrange
             List<string> names = GetNamesList();
@@ -69,7 +71,7 @@ namespace LinqTests
         }
 
         [TestMethod]
-        public void SingleOrDefaultParameterized_ReturnsNull()
+        public void SingleOrDefault_Parameterized_ReturnsNull()
         {
             List<string> names = GetNamesList();
 
@@ -79,7 +81,7 @@ namespace LinqTests
         }
 
         [TestMethod]
-        public void SingleOrDefaultParameterized_ReturnsZero()
+        public void SingleOrDefault_Parameterized_ReturnsZero()
         {
             List<double> numbers = GetNumbersList();
 
@@ -90,15 +92,19 @@ namespace LinqTests
 
         [TestMethod]
         [ExpectedException(typeof(Exception))]
-        public void SingleOrDefaultParameterized_ThrowExceptions()
+        public void SingleOrDefault_Parameterized_ThrowExceptions()
         {
             List<string> names = new List<string>(0);
 
             string name = names.Single(x => x == "Bill Gates");
         }
 
+        #endregion SingleOrDefault Tests
+
+        #region Single Tests
+
         [TestMethod]
-        public void SingleParameterized_ReturnsValue()
+        public void Single_Parameterized_ReturnsValue()
         {
             List<string> names = GetNamesList();
 
@@ -110,12 +116,16 @@ namespace LinqTests
 
         [TestMethod]
         [ExpectedException(typeof(Exception))]
-        public void SingleParameterized_ThrowExceptions()
+        public void Single_Parameterized_ThrowExceptions()
         {
             List<string> names = GetNamesList();
 
             string name = names.Single(x => x == "Steve Balmer");
-        }
+        } 
+
+        #endregion Single Tests
+
+        #region Private Methods
 
         private List<string> GetNamesList()
         {
@@ -144,5 +154,7 @@ namespace LinqTests
                 4.5,
             };
         }
+
+        #endregion Private Methods
     }
 }
