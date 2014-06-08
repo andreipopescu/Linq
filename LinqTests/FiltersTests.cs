@@ -51,7 +51,7 @@ namespace LinqTests
         #region GroupBy Tests
 
         [TestMethod]
-        public void GroupBy_Test()
+        public void GroupBy_OneParameter()
         {
             List<KeyValuePair<int, string>> names = _names;
 

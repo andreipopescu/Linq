@@ -12,7 +12,6 @@ namespace LinqTests
     [TestClass]
     public class GettersTests
     {
-        private TestContext _testContextInstance;
         private readonly List<string> _namesList;
         private readonly List<double> _numbersList;
 
@@ -22,44 +21,6 @@ namespace LinqTests
             _numbersList = GetNumbersList();
         }
          
-        /// <summary>
-        ///Gets or sets the test context which provides
-        ///information about and functionality for the current test run.
-        ///</summary>
-        public TestContext TestContext
-        {
-            get
-            {
-                return _testContextInstance;
-            }
-            set
-            {
-                _testContextInstance = value;
-            }
-        }
-
-        #region Additional test attributes
-        //
-        // You can use the following additional attributes as you write your tests:
-        //
-        // Use ClassInitialize to run code before running the first test in the class
-        // [ClassInitialize()]
-        // public static void MyClassInitialize(TestContext testContext) { }
-        //
-        // Use ClassCleanup to run code after all tests in a class have run
-        // [ClassCleanup()]
-        // public static void MyClassCleanup() { }
-        //
-        // Use TestInitialize to run code before running each test 
-        // [TestInitialize()]
-        // public void MyTestInitialize() { }
-        //
-        // Use TestCleanup to run code after each test has run
-        // [TestCleanup()]
-        // public void MyTestCleanup() { }
-        //
-        #endregion
-
         #region SingleOrDefault Tests
 
         [TestMethod]
@@ -130,6 +91,99 @@ namespace LinqTests
         } 
 
         #endregion Single Tests
+
+        #region FirstOrDefault Tests
+
+        [TestMethod]
+        public void FirstOrDefault_Parameterized_ReturnsValue()
+        {
+            List<string> names = _namesList;
+            names.Add("Chuck Norris");
+
+            string firstName = names.FirstOrDefault(x => x == "Chuck Norris");
+
+            Assert.IsNotNull(firstName);
+            Assert.AreEqual("Chuck Norris", firstName);
+        }
+
+        [TestMethod]
+        public void FirstOrDefault_Parameterized_ReturnsNull()
+        {
+            List<string> names = _namesList;
+
+            string firstName = names.FirstOrDefault(x => x == "Pamela Anderson");
+
+            Assert.IsNull(firstName);
+        }
+
+        [TestMethod]
+        public void FirstOrDefault_NoParameters_ReturnValue()
+        {
+            List<string> names = _namesList;
+
+            string firstName = names.FirstOrDefault();
+
+            Assert.IsNotNull(firstName);
+            Assert.AreEqual("Mr Bean", firstName);
+        }
+
+        [TestMethod]
+        public void FirstOrDefault_NoParameters_ReturnNull()
+        {
+            List<string> emptyList = new List<string>(0);
+
+            string empty = emptyList.FirstOrDefault();
+
+            Assert.IsNull(empty);
+        }
+
+        #endregion FirstOrDefault Tests
+
+        #region First Tests
+
+        [TestMethod]
+        public void First_Parameterized_ReturnsValue()
+        {
+            List<string> names = _namesList;
+            names.Add("Chuck Norris");
+
+            string firstName = names.First(x => x == "Chuck Norris");
+
+            Assert.IsNotNull(firstName);
+            Assert.AreEqual("Chuck Norris", firstName);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(Exception))]
+        public void First_ThrowException()
+        {
+            List<string> names = _namesList;
+
+            string firstName = names.First(x => x == "Pamela Anderson");
+        }
+
+        [TestMethod]
+        public void First_NoParameters_ReturnValue()
+        {
+            List<string> names = _namesList;
+            names.Add("Mr Bean");
+
+            string firstName = names.First();
+
+            Assert.IsNotNull(firstName);
+            Assert.AreEqual("Mr Bean", firstName);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(Exception))]
+        public void First_NoParameters_ThrowException()
+        {
+            List<string> emptyList = new List<string>(0);
+
+            string empty = emptyList.First();
+        }
+
+        #endregion First Tests
 
         #region Private Methods
 
