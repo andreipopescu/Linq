@@ -9,14 +9,7 @@ namespace Linq
     {
         static void Main(string[] args)
         {
-            TestLinq test = new TestLinq();
-            test.TestAllMethod();
-            test.TestAnyMethod();
-            test.TestWhereMethod();
-            test.TestSelectMethod();
-            test.TestGroupByMethod();
-            test.TestSingleOrDefaultMethod();
-            test.TestSingletMethod();
+           
         }
     }
 }
